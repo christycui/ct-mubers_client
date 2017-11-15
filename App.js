@@ -1,13 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { ButtonGroup } from 'react-native-elements';
 
 export default class App extends React.Component {
+  state = {
+    index: 0
+  }
+  
+  updateIndex = (index) => {
+    this.setState({index})
+  }
+  
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      <ButtonGroup
+        selectedBackgroundColor="pink"
+        onPress={this.updateIndex}
+        selectedIndex={this.state.index}
+        buttons={['Hello', 'Goodbye']}
+        containerStyle={{height: 30}} />
       </View>
     );
   }
