@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { ButtonGroup } from 'react-native-elements';
+import { ButtonGroup, Button } from 'react-native-elements';
 
 export default class App extends React.Component {
   state = {
@@ -15,12 +15,17 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
       <ButtonGroup
-        selectedBackgroundColor="pink"
+        selectedBackgroundColor="#88edfc"
         onPress={this.updateIndex}
         selectedIndex={this.state.index}
-        buttons={['Hello', 'Goodbye']}
+        buttons={["I'm moving", "I'm a mover"]}
         containerStyle={{height: 30}} />
+      <Button title='LOGIN'
+      large
+      icon={{name: 'input'}}
+      backgroundColor='#88edfc' />
       </View>
+
     );
   }
 }
@@ -30,6 +35,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
