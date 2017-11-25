@@ -33,7 +33,7 @@ export default class PhoneNumber extends React.Component {
                 buttonStyle={{ marginTop: 20 }}
                 backgroundColor="#03A9F4"
                 title="NEXT"
-                onPress={() => onSignIn()}
+                onPress={() => navigate("Mover", this.state)}
                 />
             </Card>
         )

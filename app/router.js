@@ -6,6 +6,7 @@ import Home from "./screens/Home";
 import SignIn from "./screens/SignIn";
 import PhoneNumber from "./screens/PhoneNumber";
 import Location from "./screens/mover/Location";
+import SetMiles from "./screens/mover/SetMiles"
 import SignUp from "./screens/SignUp";
 
 export const Router = StackNavigator({
@@ -15,20 +16,17 @@ export const Router = StackNavigator({
             title: "MUBER"
         }
     },
-    SignIn: {
-        screen: SignIn,
-        navigationOptions: {
-            title: "Sign In"
-        }
-    },
     PhoneNumber: {
         screen: PhoneNumber,
         navigationOptions: {
             title: "Your Info"
         }
     },
-    SignUp: { 
-        screen: SignUp
+    Mover: { 
+        screen: StackNavigator({
+            Location: { screen: Location },
+            SetMiles: { screen: SetMiles }
+        }, {headerMode: 'none'})
     } 
 });
 
