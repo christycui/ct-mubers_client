@@ -154,6 +154,12 @@ export default class App extends React.Component {
                 placeholder={this.state.profile.phoneNumber}
                 maxLength={10} />
             </View>
+            <Button title='NEXT'
+              borderRadius={10}
+              onPress={onSubmit}
+              large
+              icon={{name: 'input'}}
+              backgroundColor={brandColor} />
           </KeyboardAvoidingView>
       );
       break;
