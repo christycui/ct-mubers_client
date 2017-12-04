@@ -53,7 +53,9 @@ export default StyleSheet.create({
     buttonText: {
       color: '#fff',
       fontSize: 16,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      paddingLeft: 30,
+      paddingRight: 30
     },
     wrapper: {
       flex: 1,

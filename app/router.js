@@ -5,9 +5,13 @@ import { StackNavigator } from "react-navigation";
 import Home from "./screens/Home";
 import SignIn from "./screens/SignIn";
 import PhoneNumber from "./screens/PhoneNumber";
+import SignUp from "./screens/SignUp";
+
 import Location from "./screens/mover/Location";
 import SetMiles from "./screens/mover/SetMiles"
-import SignUp from "./screens/SignUp";
+import AddDesc from "./screens/mover/AddDesc";
+import Posts from "./screens/mover/Posts";
+
 
 export const Router = StackNavigator({
     Homepage: {
@@ -25,7 +29,9 @@ export const Router = StackNavigator({
     Mover: { 
         screen: StackNavigator({
             Location: { screen: Location },
-            SetMiles: { screen: SetMiles }
+            SetMiles: { screen: SetMiles },
+            AddDesc: { screen: AddDesc },
+            Posts: { screen: Posts }
         }, {headerMode: 'none'})
     } 
 });
