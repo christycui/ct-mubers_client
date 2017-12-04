@@ -33,8 +33,13 @@ export default class PhoneNumber extends React.Component {
                 buttonStyle={{ marginTop: 20 }}
                 backgroundColor="#03A9F4"
                 title="NEXT"
-                onPress={() => navigate("Mover", this.state)}
-                />
+                onPress={() => {
+                    if (this.state.index === 1) {
+                        navigate("Mover", this.state)
+                    } else {
+                        navigate("Client", this.state)   
+                    }
+                }}/>
             </Card>
         )
   }

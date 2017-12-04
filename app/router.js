@@ -7,10 +7,18 @@ import SignIn from "./screens/SignIn";
 import PhoneNumber from "./screens/PhoneNumber";
 import SignUp from "./screens/SignUp";
 
-import Location from "./screens/mover/Location";
+import MoverLocation from "./screens/mover/Location";
 import SetMiles from "./screens/mover/SetMiles"
 import AddDesc from "./screens/mover/AddDesc";
 import Posts from "./screens/mover/Posts";
+
+import From from "./screens/client/From";
+import To from "./screens/client/To";
+import Bedrooms from "./screens/client/Bedrooms";
+import Description from "./screens/client/Description";
+import Photos from "./screens/client/Photos";
+import Price from "./screens/client/Price";
+import Summary from "./screens/client/Summary";
 
 
 export const Router = StackNavigator({
@@ -28,51 +36,21 @@ export const Router = StackNavigator({
     },
     Mover: { 
         screen: StackNavigator({
-            Location: { screen: Location },
+            Location: { screen: MoverLocation },
             SetMiles: { screen: SetMiles },
             AddDesc: { screen: AddDesc },
             Posts: { screen: Posts }
         }, {headerMode: 'none'})
-    } 
+    },
+    Client: { 
+        screen: StackNavigator({
+            From: { screen: From },
+            To: { screen: To },
+            Bedrooms: { screen: Bedrooms },
+            Description: { screen: Description },
+            Photos: { screen: Photos },
+            Price: { screen: Price },
+            Summary: { screen: Summary}
+        }, {headerMode: 'none'})
+    }  
 });
-
-// const SignUp = StackNavigator({
-//     Mover: {
-//         screen: StackNavigator({
-//             Location: {
-//                 screen: Location
-//             },
-//             Miles: {
-//                 screen: SetMiles
-//             },
-//             Description: {
-//                 screen: Description
-//             },
-//             Posts: {
-//                 screen: Posts
-//             }
-//         })
-//     },
-//     Client: {
-//         screen: StackNavigator({})
-//     }
-// });
-
-// const Mover = StackNavigator({
-//     Location: {
-//         screen: Location
-//     },
-//     Miles: {
-//         screen: SetMiles
-//     },
-//     Description: {
-//         screen: Description
-//     },
-//     Posts: {
-//         screen: Posts
-//     }
-// });
-
-// const Client = StackNavigator({
-
-// });
