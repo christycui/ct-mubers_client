@@ -9,10 +9,11 @@
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
+    "eject": "react-native-scripts eject",
     "ios": "react-native-scripts ios",
+    "prepublish": "npm run build",
+    "start": "react-native-scripts start",
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
@@ -30,6 +31,7 @@
     "react-native-form": "^2.1.2",
     "react-native-loading-spinner-overlay": "^0.5.2",
     "react-native-maps": "^0.17.1",
+    "react-native-rest-client": "^0.1.1",
     "react-navigation": "^1.0.0-beta.21"
   }
 }
