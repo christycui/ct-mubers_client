@@ -5,6 +5,7 @@ import { StackNavigator } from "react-navigation";
 import Home from "./screens/Home";
 import SignIn from "./screens/SignIn";
 import PhoneNumber from "./screens/PhoneNumber";
+import Confirmation from "./screens/Confirmation";
 import SignUp from "./screens/SignUp";
 
 import MoverLocation from "./screens/mover/Location";
@@ -54,5 +55,14 @@ export const Router = StackNavigator({
             Price: { screen: Price },
             Summary: { screen: Summary}
         }, {headerMode: 'none'})
+    },
+    Confirmation: {
+        screen: Confirmation
+    },
+    SignIn: {
+        screen: SignIn,
+    },
+    Profile: { 
+        screen: Profile 
     }  
 });

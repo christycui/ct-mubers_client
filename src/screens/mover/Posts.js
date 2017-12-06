@@ -17,6 +17,7 @@ export default class Posts extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
+        console.log("THIS IS THE POST")
         console.log(this.props)
         this.navigate = this.props.navigation.navigate;
     }
@@ -45,7 +46,7 @@ export default class Posts extends React.Component {
               rightComponent={
                 <Text style={{textDecorationLine: 'underline', color: 'white', fontWeight: 'bold'}}
                     onPress={ () => { 
-                        this.navigate("Profile", this.props) 
+                        this.navigate("Profile", this.props.navigation.state.params) 
                     }}> Profile </Text>
               }/>
           </View>

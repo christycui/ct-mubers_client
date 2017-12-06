@@ -13,9 +13,12 @@ export default class Home extends React.Component {
       screen: null,
       index: 0, // 0 is client 1 is mover
       profile: {
-        email: null,
-        phoneNumber: null, // str field
-        location: null,
+        home: {
+          street: null,
+          city: null,
+          state: null,
+          zip: null
+        },
         distance: null,
         desc: null
       },

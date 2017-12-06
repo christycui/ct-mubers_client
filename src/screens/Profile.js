@@ -9,10 +9,12 @@ import {
 } from 'react-native';
 import { Button, Card } from "react-native-elements";
 
-export default class Price extends React.Component {
+export default class Proflie extends React.Component {
     constructor(props) {
         super(props)
         this.props = props;
+        console.log("THIS PROFILE");
+        console.log(this.props);
         this.props.navigation.state.params.setProfile = true;
         this.navigate = this.props.navigation.navigate;
     }
@@ -22,7 +24,7 @@ export default class Price extends React.Component {
             <View>
               <View style={{paddingTop: 30, paddingRight: 20}}>
                 <Text style={{textDecorationLine: 'underline', textAlign: 'right', color: styles.brandColor, fontWeight: 'bold'}}
-                 onPress={() => { this.setState({screen: POSTS}) }}> > JOBS</Text>
+                 onPress={() => { this.navigate("Posts", this.props) }}> > JOBS</Text>
               </View>
               <View style={styles.contentItem}>
                 <View>
@@ -34,47 +36,40 @@ export default class Price extends React.Component {
                 <View style={styles.contentItem}>
                   <View style={{flex: 1, flexDirection: 'row'}}>
                     <View>
-                      <Text>Email: {this.props.navigation.state.params.profile.email}</Text>
+                      <Text>Phone: {this.props.navigation.state.params.profile.phone}</Text>
+                    </View>
+                    <View style={styles.textRight}>
+                      <Text style={{textDecorationLine: 'underline'}} onPress={() => { this.navigate("PhoneNumber", this.props.navigation.state.params) }}>Edit</Text>
                     </View>
                   </View>
                 </View>
                 <View style={styles.contentItem}>
                   <View style={{flex: 1, flexDirection: 'row'}}>
                     <View>
-                      <Text>Phone: {this.state.profile.phone}</Text>
+                      <Text>Location: {this.props.navigation.state.params.profile.location}</Text>
                     </View>
                     <View style={styles.textRight}>
-                      <Text style={{textDecorationLine: 'underline'}} onPress={() => { this.navigate("PhoneNumber", this.props) }}>Edit</Text>
+                      <Text style={{textDecorationLine: 'underline'}} onPress={() => { this.navigate("Location", this.props.navigation.state.params) }}>Edit</Text>
                     </View>
                   </View>
                 </View>
                 <View style={styles.contentItem}>
                   <View style={{flex: 1, flexDirection: 'row'}}>
                     <View>
-                      <Text>Location: {this.state.profile.location}</Text>
+                      <Text>Job Distance (miles): {this.props.navigation.state.params.profile.distance}</Text>
                     </View>
                     <View style={styles.textRight}>
-                      <Text style={{textDecorationLine: 'underline'}} onPress={() => { this.navigate("Location", this.props) }}>Edit</Text>
+                      <Text style={{textDecorationLine: 'underline'}} onPress={() => { this.navigate("SetMiles", this.props.navigation.state.params)}}>Edit</Text>
                     </View>
                   </View>
                 </View>
                 <View style={styles.contentItem}>
                   <View style={{flex: 1, flexDirection: 'row'}}>
                     <View>
-                      <Text>Job Distance (miles): {this.state.profile.distance}</Text>
+                      <Text>Description: {this.props.navigation.state.params.profile.desc}</Text>
                     </View>
                     <View style={styles.textRight}>
-                      <Text style={{textDecorationLine: 'underline'}} onPress={() => { this.navigate("SetMiles", this.props)}}>Edit</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={styles.contentItem}>
-                  <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View>
-                      <Text>Description: {this.state.profile.desc}</Text>
-                    </View>
-                    <View style={styles.textRight}>
-                      <Text style={{textDecorationLine: 'underline'}} onPress={() => { this.navigate("AddDesc", this.props) }}>Edit</Text>
+                      <Text style={{textDecorationLine: 'underline'}} onPress={() => { this.navigate("AddDesc", this.props.navigation.state.params) }}>Edit</Text>
                     </View>
                   </View>
                 </View>

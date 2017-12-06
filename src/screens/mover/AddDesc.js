@@ -18,7 +18,7 @@ export default class AddDesc extends React.Component {
     onSubmit = (miles) => {
         // TODO: save to DB
         if (this.props.navigation.state.params.setProfile == true) {
-            this.navigate("Posts", this.props.navigation.state.params)
+            this.navigate("Profile", this.props.navigation.state.params)
         } else {
             this.navigate("Posts", this.props.navigation.state.params)
         }
@@ -39,6 +39,7 @@ export default class AddDesc extends React.Component {
                 style={Styles.textInput}
                 returnKeyType='go'
                 autoFocus
+                onChangeText={(value) => this.props.navigation.state.params.profile.desc = value }
                 placeholderTextColor={Styles.brandColor}
                 selectionColor={Styles.brandColor}
                 multiline={true}
