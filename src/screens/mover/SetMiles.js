@@ -41,6 +41,7 @@ export default class SetMiles extends React.Component {
                     placeholderTextColor = { Styles.brandColor }
                     selectionColor = { Styles.brandColor }
                     onSubmitEditing = { this.onSubmit }
+                    onChangeText={(value) => this.props.navigation.state.params.profile.distance = value }
                     maxLength = { 2 }
                     defaultValue = {'5'} /><Text style = {{ fontSize: 25, color: Styles.brandColor }}>Miles</Text>
                 </View>

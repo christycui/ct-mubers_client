@@ -12,7 +12,6 @@ export default class AddDesc extends React.Component {
     constructor(props) {
         super(props)
         this.props = props;
-        console.log(this.props)
         this.navigate = this.props.navigation.navigate;
     }
 

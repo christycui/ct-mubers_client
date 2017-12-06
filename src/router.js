@@ -11,6 +11,7 @@ import MoverLocation from "./screens/mover/Location";
 import SetMiles from "./screens/mover/SetMiles"
 import AddDesc from "./screens/mover/AddDesc";
 import Posts from "./screens/mover/Posts";
+import Profile from "./screens/Profile";
 
 import From from "./screens/client/From";
 import To from "./screens/client/To";
@@ -39,7 +40,8 @@ export const Router = StackNavigator({
             Location: { screen: MoverLocation },
             SetMiles: { screen: SetMiles },
             AddDesc: { screen: AddDesc },
-            Posts: { screen: Posts }
+            Posts: { screen: Posts },
+            Profile: { screen: Profile }
         }, {headerMode: 'none'})
     },
     Client: { 

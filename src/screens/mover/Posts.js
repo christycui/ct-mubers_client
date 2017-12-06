@@ -17,6 +17,7 @@ export default class Posts extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
+        console.log(this.props)
         this.navigate = this.props.navigation.navigate;
     }
 
@@ -43,7 +44,9 @@ export default class Posts extends React.Component {
               centerComponent={<Text style={{color: 'white'}}>AVAILABLE JOBS</Text>}
               rightComponent={
                 <Text style={{textDecorationLine: 'underline', color: 'white', fontWeight: 'bold'}}
-                    onPress={() => { this.setState({screen: PROFILE}) }}> > PROFILE</Text>
+                    onPress={ () => { 
+                        this.navigate("Profile", this.props) 
+                    }}> Profile </Text>
               }/>
           </View>
         );
