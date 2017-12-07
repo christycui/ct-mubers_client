@@ -9,7 +9,7 @@ export default class GoogleClient extends RestClient {
       geocode (street, city, state, zip) {
         // Returns a Promise with the response. 
         let address = [street, city, state, zip].join(', ')
-        return this.POST('/geocode/json?address='+address.split(' ').join('+')+'&key=AIzaSyAxfb_fK-AMX7jEWf3nuO6RSr6SP6uVL0E')
+        return this.POST('/geocode/json?address='+address.split(' ').join('+')+'&key=FAKEAPI')
           .then(response => response);
       }
 
