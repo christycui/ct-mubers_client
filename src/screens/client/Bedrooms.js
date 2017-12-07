@@ -1,6 +1,7 @@
 import React from 'react';
 import Styles from '../../resources/style'
-
+import RestClient from 'react-native-rest-client';
+import ApiClient from '../../api-client';
 import { 
     Icon,  
     KeyboardAvoidingView,
@@ -13,7 +14,7 @@ export default class Bedrooms extends React.Component {
     constructor(props) {
         super(props)
         this.props = props;
-        this.navigate = this.props.navigation.navigate;
+        this.state = props.navigation.state.params;
     }
 
     onSubmit = (bedrooms) => {
@@ -27,6 +28,8 @@ export default class Bedrooms extends React.Component {
     }
     
     render() {
+        const api = new ApiClient();
+        const { navigate } = this.props.navigation;
         return (
             <Card title="How many bedrooms do you currently have?">
                 <View style = {{ flexDirection: 'row'}}>
@@ -37,15 +40,31 @@ export default class Bedrooms extends React.Component {
                     returnKeyType = 'go'
                     autoFocus
                     placeholderTextColor = { Styles.brandColor }
+                    placeholder={this.state.profile.bedrooms}
                     selectionColor = { Styles.brandColor }
                     onSubmitEditing = { this.onSubmit }
-                    maxLength = { 1 } /><Text style = {{ fontSize: 25, color: Styles.brandColor }}>Rooms</Text>
+                    maxLength = { 1 } 
+                    onChangeText={value => { 
+                                        this.state.profile.bedrooms = value; } }/>
+                <Text style = {{ fontSize: 25, color: Styles.brandColor }}>Rooms</Text>
                 </View>
                 <Button
                         buttonStyle={{ marginTop: 20 }}
                         backgroundColor="#03A9F4"
                         title = "NEXT"
-                        onPress = { this.onSubmit }
+                        onPress = { () => {
+                            api.updateJobs({'client_id': this.state.profile.user_id, 
+                                'job_id': this.state.job_id,
+                                'num_beds': this.state.bedrooms
+                            }).then(response => { 
+                                    console.log(response);
+                                  if (response.msg === 'ok') { 
+                                    navigate("Description", this.state)
+                                  } else {
+                                    Alert.alert('Invalid entry.');
+                                  }
+                                });
+                            } }
                     />
             </Card>
         );

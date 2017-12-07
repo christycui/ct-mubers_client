@@ -3,6 +3,8 @@ import Styles from "../resources/style"
 import { KeyboardAvoidingView, TextInput, View } from "react-native";
 import { Card, Button, FormLabel, FormInput, Text } from "react-native-elements";
 import { onSignIn } from "../auth";
+import RestClient from 'react-native-rest-client';
+import ApiClient from '../api-client';
 
 export default class PhoneNumber extends React.Component {
     constructor (props) {
@@ -13,7 +15,6 @@ export default class PhoneNumber extends React.Component {
 
     onSubmit = (location) => {
         console.log("IM ON THE PHONE NUMBER!")
-        console.log(this.state)
         //TODO: INTEGRATE GOOGLE LOCATION API
         //TODO: ERROR HANDLING
         //TODO: UPDATE DB
@@ -28,6 +29,7 @@ export default class PhoneNumber extends React.Component {
 
     render() {
         const { navigate } = this.props.navigation;
+        const api = new ApiClient();
         return(
         <Card title="What's your phone number?">
             <View style={{ flexDirection: 'row'}}>
@@ -45,16 +47,27 @@ export default class PhoneNumber extends React.Component {
                     onChangeText={(value) => this.state.profile.phone = value }
                     selectionColor={Styles.brandColor}
                     placeholder={this.state.profile.phone}
-                    maxLength={10} />
-                </View>
+                    maxLength={10} 
+                    onChangeText={value => { 
+                        this.state.profile.phone = value; } }/>
+            </View>
         
-                <Button
+            <Button
                 buttonStyle={{ marginTop: 20 }}
                 backgroundColor="#03A9F4"
                 title="NEXT"
                 onPress={() => {
-                    this.onSubmit();
-                }}/>
+                    console.log(this.state.profile.phone);
+                    api.createCode(this.state.profile.user_id, this.state.profile.phone)
+                        .then(response => { 
+                          if (response.msg === 'ok') { 
+                            console.log(typeof(navigate));
+                            navigate("Confirmation", this.state);
+                            console.log('after navigate')
+                          }
+                        });
+                    }
+                }/>
             </Card>
         )
   }
